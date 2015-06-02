@@ -22,6 +22,7 @@
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
 		E45B6BE11B1CA80C00E6939C /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B6BE01B1CA80C00E6939C /* UserTableViewController.swift */; };
+		E49592E71B1E05720076E322 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49592E61B1E05720076E322 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45B6BE01B1CA80C00E6939C /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		E49592E61B1E05720076E322 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +88,10 @@
 		81BA81471A49DA1800E65899 /* MySnapChat */ = {
 			isa = PBXGroup;
 			children = (
-				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
+				E49592E31B1E05420076E322 /* Models */,
 				E45B6BE21B1CA82800E6939C /* Controllers */,
-				81BA814C1A49DA1800E65899 /* ViewController.swift */,
-				E45B6BE01B1CA80C00E6939C /* UserTableViewController.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
 			);
@@ -135,8 +136,18 @@
 		E45B6BE21B1CA82800E6939C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				81BA814C1A49DA1800E65899 /* ViewController.swift */,
+				E45B6BE01B1CA80C00E6939C /* UserTableViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E49592E31B1E05420076E322 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E49592E61B1E05720076E322 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49592E71B1E05720076E322 /* User.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				E45B6BE11B1CA80C00E6939C /* UserTableViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,

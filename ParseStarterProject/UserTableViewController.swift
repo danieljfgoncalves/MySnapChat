@@ -94,11 +94,14 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
                                     // create an alert view
                                     var messageAlert = UIAlertController(title: "New Message", message: "Hey you have a message from \(senderUsername).", preferredStyle: UIAlertControllerStyle.ActionSheet)
                                     messageAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                                        var backgroundView = UIImageView(frame: CGRect(origin: CGPointZero, size: self.view.frame.size))
-                                        backgroundView.backgroundColor = UIColor.blackColor()
-                                        backgroundView.alpha = 0.5
-                                        backgroundView.tag = 3
-                                        self.view.addSubview(backgroundView)
+//                                        var backgroundView = UIImageView(frame: CGRect(origin: CGPointZero, size: self.view.frame.size))
+//                                        backgroundView.backgroundColor = UIColor.blackColor()
+//                                        backgroundView.alpha = 0.5
+//                                        backgroundView.tag = 3
+//                                        self.view.addSubview(backgroundView)
+                                        
+                                        self.createImageView(CGRect(origin: CGPointZero, size: self.view.frame.size), color: UIColor.blackColor(), alpha: 0.5, tag: 3)
+                                        
                                         // Create a variable for the displayed image
                                         var displayedImage = UIImageView(frame: CGRect(origin: CGPointZero, size: self.view.frame.size))
                                         displayedImage.image = photo
@@ -124,6 +127,15 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
             }
         }
         
+    }
+    
+    func createImageView(frame: CGRect, color: UIColor, alpha: CGFloat, tag: Int) -> Void {
+        
+        var backgroundView = UIImageView(frame: frame)
+        backgroundView.backgroundColor = color
+        backgroundView.alpha = alpha
+        backgroundView.tag = tag
+        self.view.addSubview(backgroundView)
     }
     
     func hideMessage() {
