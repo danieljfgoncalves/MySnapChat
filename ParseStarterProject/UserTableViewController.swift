@@ -22,6 +22,7 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
         self.dismissViewControllerAnimated(true, completion: nil)
         // upload to Parse
         var imageSend = PFObject(className: "Image")
+        imageSend.ACL?.setPublicWriteAccess(true)
         imageSend["image"] = PFFile(name: "image.jpg", data: UIImageJPEGRepresentation(image, 0.5))
         imageSend["sender"] = PFUser.currentUser()?.username
         imageSend["receiver"] = userArray[activeUser]
@@ -68,12 +69,15 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
         // get the user
         query.whereKey("receiver", equalTo: PFUser.currentUser()!.username!)
         // grab the images from the list
-        var images:Void = query.findObjectsInBackgroundWithBlock { (photo, error) -> Void in
+
+        var images: Void = query.findObjectsInBackgroundWithBlock { (photo: [AnyObject]?, error: NSError?) -> Void in
+            
             if error == nil {
                 var done = false
                 if let myPhotoObject = photo {
                     var imageView:PFImageView = PFImageView()
                     for image in myPhotoObject {
+
                         if let imageFile = image["image"] as? PFFile {
                             
                             imageView.file = imageFile
@@ -101,7 +105,7 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
                                         displayedImage.tag = 3
                                         displayedImage.contentMode = UIViewContentMode.ScaleAspectFit
                                         self.view.addSubview(displayedImage)
-                                        // Delete image
+//                                        // Delete image
                                         image.delete()
                                         // Hide messge
                                         self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("hideMessage"), userInfo: nil, repeats: false)
@@ -116,12 +120,16 @@ class UserTableViewController: UITableViewController, UINavigationControllerDele
                         }
                     }
                 }
+                
             }
         }
         
     }
     
     func hideMessage() {
+        
+        
+        
         for subview in self.view.subviews {
             if subview.tag == 3 {
                 subview.removeFromSuperview()
